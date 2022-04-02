@@ -15,6 +15,6 @@ pool:
 
 steps:
 - checkout: self
-- checkout: azureyaml
+- checkout: DotNetApplication
 
 - script: dir $(Build.SourcesDirectory)
