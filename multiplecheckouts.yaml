@@ -4,6 +4,7 @@ resources:
     type: github
     endpoint: vijishankar
     name: vijishankar/DotNetApplication
+    ref: master
 
 trigger:
 - main
