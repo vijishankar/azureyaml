@@ -1,17 +1,9 @@
 resources:
   repositories:
-  - repository: MyGitHubRepo # The name used to reference this repository in the checkout step
+  - repository: azureyaml # The name used to reference this repository in the checkout step
     type: github
-    endpoint: MyGitHubServiceConnection
-    name: MyGitHubOrgOrUser/MyGitHubRepo
-  - repository: MyBitbucketRepo
-    type: bitbucket
-    endpoint: MyBitbucketServiceConnection
-    name: MyBitbucketOrgOrUser/MyBitbucketRepo
-  - repository: MyAzureReposGitRepository # In a different organization
-    endpoint: MyAzureReposGitServiceConnection
-    type: git
-    name: OtherProject/MyAzureReposGitRepo
+    endpoint: vijishankar
+    name: vijishankar/azureyaml
 
 trigger:
 - main
@@ -21,8 +13,6 @@ pool:
 
 steps:
 - checkout: self
-- checkout: MyGitHubRepo
-- checkout: MyBitbucketRepo
-- checkout: MyAzureReposGitRepository
+- checkout: azureyaml
 
 - script: dir $(Build.SourcesDirectory)
