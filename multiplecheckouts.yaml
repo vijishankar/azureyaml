@@ -1,9 +1,11 @@
 resources:
   repositories:
-  - repository: azureyaml # The name used to reference this repository in the checkout step
+  - repository: DotNetApplication # The name used to reference this repository in the checkout step
     type: github
     endpoint: vijishankar
-    name: vijishankar/azureyaml
+    name: vijishankar/DotNetApplication
+    trigger:
+    - master
 
 trigger:
 - main
