@@ -19,3 +19,4 @@ steps:
 
 - script: dir $(Build.SourcesDirectory)
 - script: ls $(Build.SourcesDirectory)/DotNetApplication
+- script: ls $(Build.SourcesDirectory)/azureyaml
