@@ -1,8 +1,9 @@
 resources:
   repositories:
-  - repository: MyGitHubRepo # The name used to reference this repository in the checkout step
+  - repository: angular-ui # The name used to reference this repository in the checkout step
     type: github
-    endpoint: vijishankar/angular-ui
+    endpoint: vijishankar
+    name: vijishankar/angular-ui
 
 trigger:
 - main
