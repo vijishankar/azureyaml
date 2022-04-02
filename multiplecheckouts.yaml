@@ -1,9 +1,9 @@
 resources:
   repositories:
-  - repository: angular-ui # The name used to reference this repository in the checkout step
+  - repository: DotNetApplication # The name used to reference this repository in the checkout step
     type: github
     endpoint: vijishankar
-    name: vijishankar/angular-ui
+    name: vijishankar/DotNetApplication
 
 trigger:
 - main
@@ -13,6 +13,6 @@ pool:
 
 steps:
 - checkout: self
-- checkout: angular-ui
+- checkout: DotNetApplication
 
 - script: dir $(Build.SourcesDirectory)
