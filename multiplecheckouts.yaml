@@ -18,5 +18,4 @@ steps:
 - checkout: DotNetApplication
 
 - script: dir $(Build.SourcesDirectory)
-- script: cd $(Build.SourcesDirectory)/DotNetApplication
-- script: ls
+- script: ls $(Build.SourcesDirectory)/DotNetApplication
