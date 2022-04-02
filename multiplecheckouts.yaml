@@ -13,6 +13,6 @@ pool:
 
 steps:
 - checkout: self
-- checkout: MyGitHubRepo
+- checkout: angular-ui
 
 - script: dir $(Build.SourcesDirectory)
