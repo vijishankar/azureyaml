@@ -1,10 +1,17 @@
 resources:
   repositories:
-  - repository: DotNetApplication # The name used to reference this repository in the checkout step
+  - repository: MyGitHubRepo # The name used to reference this repository in the checkout step
     type: github
-    endpoint: vijishankar
-    name: Devtestproject/DotNetApplication
-    ref: master
+    endpoint: MyGitHubServiceConnection
+    name: MyGitHubOrgOrUser/MyGitHubRepo
+  - repository: MyBitbucketRepo
+    type: bitbucket
+    endpoint: MyBitbucketServiceConnection
+    name: MyBitbucketOrgOrUser/MyBitbucketRepo
+  - repository: MyAzureReposGitRepository # In a different organization
+    endpoint: MyAzureReposGitServiceConnection
+    type: git
+    name: OtherProject/MyAzureReposGitRepo
 
 trigger:
 - main
@@ -14,6 +21,8 @@ pool:
 
 steps:
 - checkout: self
-- checkout: DotNetApplication
+- checkout: MyGitHubRepo
+- checkout: MyBitbucketRepo
+- checkout: MyAzureReposGitRepository
 
 - script: dir $(Build.SourcesDirectory)
