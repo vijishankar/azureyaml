@@ -1,0 +1,14 @@
+resources:
+  repositories:
+  - repository: other
+    type: git
+    name: MyProject/OtherTools
+
+variables:
+  tools.ref: $[ resources.repositories['other'].ref ]
+
+steps:
+- checkout: self
+- checkout: other
+- bash: |
+    echo "Tools version: $TOOLS_REF"
