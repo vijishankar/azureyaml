@@ -17,7 +17,13 @@ parameters:
   - 4
   - 8
   - 16
-- name: myBoolean
+- name: bankvalidation
+  type: boolean
+  default: true
+- name: imagestore
+  type: boolean
+  default: true
+- name: paysafe
   type: boolean
   default: true
 - name: myObject
