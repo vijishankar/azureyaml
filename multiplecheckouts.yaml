@@ -2,7 +2,7 @@ resources:
   repositories:
   - repository: DotNetApplication # The name used to reference this repository in the checkout step
     type: github
-    endpoint: vijishankar
+    endpoint: github.com_vijishankar
     name: vijishankar/DotNetApplication
     trigger:
     - master
