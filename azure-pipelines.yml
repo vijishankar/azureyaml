@@ -25,3 +25,7 @@ jobs:
     condition: eq('${{ parameters.doThing }}', 'true')
     inputs:
      versionSpec: '6.x'
+  
+  - task: NodeTool@0
+    inputs:
+     versionSpec: '6.x'
