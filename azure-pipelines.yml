@@ -1,0 +1,27 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+parameters:
+- name: doThing
+  default: false
+  type: boolean
+
+jobs:
+- job: build
+  displayName: build
+  pool: 
+    vmImage: ubuntu-latest
+  steps:
+
+  - task: NodeTool@0
+    condition: eq('${{ parameters.doThing }}', 'true')
+    inputs:
+     versionSpec: '6.x'
