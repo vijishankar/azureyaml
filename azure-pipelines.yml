@@ -15,17 +15,7 @@ parameters:
   type: boolean
 
 jobs:
-- job: build
-  displayName: build
-  pool: 
-    vmImage: ubuntu-latest
+- job: A
   steps:
-
-  - task: NodeTool@0
-    condition: eq('${{ parameters.doThing }}', 'true')
-    inputs:
-     versionSpec: '6.x'
-  
-  - task: NodeTool@0
-    inputs:
-     versionSpec: '6.x'
+  - powershell: |
+     Write-Host "##vso[task.setvariable variable=myVar;]foo"
