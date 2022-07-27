@@ -22,7 +22,7 @@ jobs:
   
   - task: AzureCLI@2
     inputs:
-      azureSubscription: '$(myVar)'
+      azureSubscription: $(myVar)
       scriptType: 'ps'
       scriptLocation: 'inlineScript'
       inlineScript: 'Write-Host "BUILD_SOURCESDIRECTORY contents:"'
