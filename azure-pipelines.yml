@@ -19,7 +19,9 @@ jobs:
   steps:
   - powershell: |
      Write-Host "##vso[task.setvariable variable=myVar;]ServiceConnection"
-  
+
+- job: B  
+  steps:
   - task: AzureCLI@2
     inputs:
       azureSubscription: $(myVar)
