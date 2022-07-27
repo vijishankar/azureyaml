@@ -18,4 +18,11 @@ jobs:
 - job: A
   steps:
   - powershell: |
-     Write-Host "##vso[task.setvariable variable=myVar;]foo"
+     Write-Host "##vso[task.setvariable variable=myVar;]azureconnection"
+  
+  - task: AzureCLI@2
+    inputs:
+      azureSubscription: '$(myVar)'
+      scriptType: 'ps'
+      scriptLocation: 'inlineScript'
+      inlineScript: 'Write-Host "BUILD_SOURCESDIRECTORY contents:"'
