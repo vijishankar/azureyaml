@@ -1,0 +1,58 @@
+trigger: none
+
+parameters:
+- name: Build
+  type: boolean
+  default: false
+- name: agent_build
+  type: string
+  default: ubuntu-20.04
+  values:
+  - ubuntu-18.04
+  - ubuntu-20.04
+  - windows-2019
+  - windows-2022
+- name: Release
+  type: boolean 
+  default: false
+- name: agent_release
+  type: string
+  default: windows-2022
+  values:
+  - ubuntu-18.04
+  - ubuntu-20.04
+  - windows-2019
+  - windows-2022
+
+name: $(Build.BuildId)
+
+stages:
+
+- ${{ if eq(parameters.Build, true) }}:
+  - stage: Build
+    jobs:
+    - job: Build_process
+      variables:
+        major-minor: '0.0'
+        revision: $[ counter(variables['major-minor'],0) ]
+      pool: 
+        vmImage: ${{ parameters.agent_build }}
+      steps:
+        - template: /WV.Chosen.AKS.BankValidation.AzureRG/Azure-Pipeline/Build.yml
+          parameters:
+            environment: $(environment)
+
+- ${{ if eq(parameters.Release, true) }}:
+  - stage: Release
+    jobs: 
+    - job: Release_process
+      pool: 
+        vmImage: ${{ parameters.agent_release }}
+      steps:
+        
+
+        - template: /WV.Chosen.AKS.BankValidation.AzureRG/Azure-Pipeline/Release.yml
+          parameters:
+            subcription: $(subcription)
+
+
