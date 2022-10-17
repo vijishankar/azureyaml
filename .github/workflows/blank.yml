@@ -16,7 +16,7 @@ on:
       - master
       - main
       - 'releases/*'
-
+  create:
 
 jobs:
   test: # Test action's functionality
