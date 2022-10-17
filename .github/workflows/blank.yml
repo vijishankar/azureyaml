@@ -18,6 +18,7 @@ on:
       - 'releases/*'
   create:
 
+
 jobs:
   test: # Test action's functionality
     runs-on: ubuntu-latest
