@@ -1,0 +1,33 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  test: # Test action's functionality
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ./
+      with: 
+        PERSONAL-ACCESS-TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        BASE-BRANCH-PATTERN: '^feature\/[a-zA-Z0-9]+$'
+        REQUIRED-NUMBER-OF-REVIEWERS: 2
+        REQUIRED-STATUS-CHECKS: 'build,test'
+        REQUIRE-REVIEW-FROM-CODEOWNERS: 'true'
+        DISMISS-STALE-PR-APPROVALS-ON-NEW-COMMITS: 'true'
+        REQUIRE-LINEAR-HISTORY: 'true'
+        ALLOW-FORCE-PUSHES: 'true'
+        ALLOW-DELETIONS: 'true'
+        INCLUDE-ADMINISTRATORS: 'true'
